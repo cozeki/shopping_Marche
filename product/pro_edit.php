@@ -1,4 +1,4 @@
-<?
+<?php
 //Session対策
 session_start();
 session_regenerate_id(true);
