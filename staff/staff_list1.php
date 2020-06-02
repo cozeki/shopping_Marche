@@ -5,8 +5,8 @@
 <title>ろくまる農園</title>
 </head>
 <body>
-<?
-try{
+<?php
+try {
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';
     $password = '';

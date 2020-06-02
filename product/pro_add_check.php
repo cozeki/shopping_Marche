@@ -1,3 +1,17 @@
+<?php
+//Session対策
+session_start();
+session_regenerate_id(true);
+if (isset($_SESSION['login']) == false) {
+    print 'ログインされていません<br />';
+    print '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    exit();
+} else {
+    print $_SESSION['staff_name'];
+    print 'さんログイン中<br />';
+    print '<br />';
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +20,6 @@
 </head>
 <body>
 <?php
-
 $pro_name=$_POST['name'];
 $pro_price=$_POST['price'];
 if (!empty($_FILES['gazou'])) {
@@ -14,7 +27,6 @@ if (!empty($_FILES['gazou'])) {
     $pro_gazou=$_FILES['gazou'];
     // echo $pro_gazou;
 }
-
 
 $pro_name = htmlspecialchars($pro_name, ENT_QUOTES);
 $pro_price = htmlspecialchars($pro_price, ENT_QUOTES);
