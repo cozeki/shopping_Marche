@@ -8,6 +8,7 @@ if (isset($_SESSION['login']) == false) {
     exit();
 }
 
+// 参照画面へ
 if (isset($_POST['disp'])==true) {
 
     if (isset($_POST['staffcode'])==false) {
@@ -19,11 +20,13 @@ if (isset($_POST['disp'])==true) {
     exit();
 }
 
+// 追加画面へ
 if (isset($_POST['add'])==true) {
     header('Location:staff_add.php');
     exit();
 }
 
+// 修正画面へ
 if (isset($_POST['edit'])==true) {
     // print '修正ボタンが押された';
     if (isset($_POST['staffcode'])==false) {
@@ -35,6 +38,7 @@ if (isset($_POST['edit'])==true) {
     exit();
 }
 
+// 削除画面へ
 if (isset($_POST['delete'])==true) {
     // print '削除ボタンが押された';
     if (isset($_POST['staffcode'])==false) {

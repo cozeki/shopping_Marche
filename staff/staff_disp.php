@@ -20,8 +20,8 @@ if (isset($_SESSION['login']) == false) {
 </head>
 <body>
 
-<?
-try{
+<?php
+try {
     $staff_code=$_GET['staffcode'];
 
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
@@ -40,8 +40,7 @@ try{
     $staff_name=$rec['name'];
     
     $dbh=null;
-
-}catch (Exception $e){
+} catch (Exception $e) {
     print 'ただいま障害により大変ご迷惑をお掛けしております。';
     exit();
 }
