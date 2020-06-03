@@ -26,8 +26,18 @@ try {
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
     $user = 'root';
     $password = '';
-    $dbh = new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // DB接続方法その１
+    // $dbh = new PDO($dsn,$user,$password);
+    // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // DB接続方法その２
+    $dbh = new PDO(
+        $dsn,
+        $user,
+        $password,
+        array(
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        )
+    );
 
      $sql = 'SELECT code,name FROM mst_staff WHERE 1';
      $stmt = $dbh->prepare($sql);
