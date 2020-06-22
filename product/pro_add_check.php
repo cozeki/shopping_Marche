@@ -20,16 +20,20 @@ if (isset($_SESSION['login']) == false) {
 </head>
 <body>
 <?php
-$pro_name=$_POST['name'];
-$pro_price=$_POST['price'];
+// サニタイズ処理共通化
+require_once('../common/common.php');
+
+$post = sanitize($_POST);
+$pro_name=$post['name'];
+$pro_price=$post['price'];
 if (!empty($_FILES['gazou'])) {
     //ここに処理が入ります
     $pro_gazou=$_FILES['gazou'];
     // echo $pro_gazou;
 }
 
-$pro_name = htmlspecialchars($pro_name, ENT_QUOTES);
-$pro_price = htmlspecialchars($pro_price, ENT_QUOTES);
+// $pro_name = htmlspecialchars($pro_name, ENT_QUOTES);
+// $pro_price = htmlspecialchars($pro_price, ENT_QUOTES);
 // $pro_gazou = htmlspecialchars($pro_gazou, ENT_QUOTES);
 
 

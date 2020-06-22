@@ -19,24 +19,28 @@ if (isset($_SESSION['login']) == false) {
 <title>ネットマルシェ</title>
 </head>
 <body>
-<?php
-$staff_code=$_POST['code'];
-$staff_name=$_POST['name'];
-$staff_pass=$_POST['pass'];
-$staff_pass2=$_POST['pass2'];
+<?php   
+// サニタイズ処理共通化
+require_once('../common/common.php');
 
-$staff_name=htmlspecialchars($staff_name, ENT_QUOTES);
-$staff_pass=htmlspecialchars($staff_pass, ENT_QUOTES);
-$staff_pass2=htmlspecialchars($staff_pass2, ENT_QUOTES);
+$post = sanitize($_POST);
+$staff_code = $post['code'];
+$staff_name = $post['name'];
+$staff_pass = $post['pass'];
+$staff_pass2 = $post['pass2'];
 
-if ($staff_name=='') {
+// $staff_name=htmlspecialchars($staff_name, ENT_QUOTES);
+// $staff_pass=htmlspecialchars($staff_pass, ENT_QUOTES);
+// $staff_pass2=htmlspecialchars($staff_pass2, ENT_QUOTES);
+
+if ($staff_name == '') {
     print 'スタッフ名が入力されていません。<br />';
 } else {
     print 'スタッフ名：';
     print $staff_name;
     print '<br />';
 }
-if ($staff_pass=='') {
+if ($staff_pass == '') {
     print 'パスワードが入力されていません。<br />';
 }
 
@@ -44,12 +48,12 @@ if ($staff_pass != $staff_pass2) {
     print 'パスワードが一致しません。<br />';
 }
 
-if ($staff_name=='' || $staff_pass=='' || $staff_pass !== $staff_pass2) {
+if ($staff_name == '' || $staff_pass == '' || $staff_pass !== $staff_pass2) {
     print '<form>';
     print '<input type="button" onclick="history.back()" value="戻る">';
     print '</form>';
 } else {
-    $staff_pass=md5($staff_pass);
+    $staff_pass = md5($staff_pass);
     print '<form method="post" action="staff_edit_done.php">';
     print '<input type="hidden" name="code" value="'.$staff_code.'">';
     print '<input type="hidden" name="name" value="'.$staff_name.'">';

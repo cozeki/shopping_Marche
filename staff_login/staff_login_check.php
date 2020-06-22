@@ -29,11 +29,14 @@ try {
         print 'スタッフコードかパスワードが間違っています。<br />';
         print '<a href="staff_login.html">戻る</a>';
     } else {
-        // セッションスタート
+        // セッション開始
         session_start();
-        $_SESSION['login']=1;
-        $_SESSION['staff_code']=$staff_code;
-        $_SESSION['staff_name']=$rec['name'];
+        $_SESSION['login'] = 1;
+        $_SESSION['staff_code'] = $staff_code;
+        $_SESSION['staff_name'] = $rec['name'];
+        // print $_SESSION['staff_name'];
+        // $seslog = $_SESSION;
+        print_r($_SESSION);
         header('Location:staff_top.php');
         exit();
     }

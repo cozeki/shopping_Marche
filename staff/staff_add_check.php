@@ -20,13 +20,17 @@ if (isset($_SESSION['login']) == false) {
 </head>
 <body>
 <?php
-$staff_name=$_POST['name'];
-$staff_pass=$_POST['pass'];
-$staff_pass2=$_POST['pass2'];
+// サニタイズ処理共通化
+require_once('../common/common.php');
 
-$staff_name = htmlspecialchars($staff_name, ENT_QUOTES);
-$staff_pass = htmlspecialchars($staff_pass, ENT_QUOTES);
-$staff_pass2 = htmlspecialchars($staff_pass2, ENT_QUOTES);
+$post = sanitize($_POST);
+$staff_name = $post['name'];
+$staff_pass = $post['pass'];
+$staff_pass2 = $post['pass2'];
+
+// $staff_name = htmlspecialchars($staff_name, ENT_QUOTES);
+// $staff_pass = htmlspecialchars($staff_pass, ENT_QUOTES);
+// $staff_pass2 = htmlspecialchars($staff_pass2, ENT_QUOTES);
 
 
 if ($staff_name == '') {
