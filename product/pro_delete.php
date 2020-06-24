@@ -20,8 +20,8 @@ if (isset($_SESSION['login']) == false) {
 </head>
 <body>
 
-<?
-try{
+<?php
+try {
     $pro_code=$_GET['procode'];
 
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
@@ -47,8 +47,7 @@ try{
     } else {
         $disp_gazou = '<img src="./gazou/'.$pro_gazou_name.'">';
     }
-
-}catch (Exception $e){
+} catch (Exception $e) {
     print 'ただいま障害により大変ご迷惑をお掛けしております。';
     exit();
 }

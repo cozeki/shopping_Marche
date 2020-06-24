@@ -20,8 +20,8 @@ if (isset($_SESSION['login']) == false) {
 </head>
 <body>
 
-<?
-try{
+<?php
+try {
     $pro_code=$_GET['procode'];
 
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
