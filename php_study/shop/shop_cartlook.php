@@ -25,6 +25,7 @@ if (!isset($_SESSION['member_login'])) {
 <?php
 try {
     $cart = $_SESSION['cart'];
+    $kazu = $_SESSION['kazu'];
     $max = count($cart);
 
     $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
@@ -65,6 +66,7 @@ try {
         <?php print $pro_name[$i]; ?>
         <?php print $pro_gazou[$i]; ?>
         <?php print $pro_price[$i]; ?>円
+        <?php print $kazu[$i]; ?>
         <br />
 <?php 
     }
