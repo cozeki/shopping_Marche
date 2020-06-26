@@ -8,6 +8,11 @@ $post = sanitize($_POST);
 
 $max = $post['max'];
 for ($i = 0; $i < $max; $i++) {
+    if (numberCheck($post['kazu'.$i]) == false) {
+        print '数量に誤りがあります。';
+        print '<a href="shop_cartlook.php">カートに戻る</a>';
+        exit();
+    }
     $kazu[] = $post['kazu'.$i];
 }
 

@@ -46,7 +46,7 @@ if ($pro_name == '') {
 }
 
 // 正規表現
-if (preg_match('/[0-9]/', $pro_price) == 0) {
+if (numberCheck($pro_price) == false) {
     print '価格をきちんと入力してください。<br />';
 } else {
     print '価格：';
@@ -65,7 +65,7 @@ if ($pro_gazou['size'] > 0) {
 }
 
 // 正規表現
-if ($pro_name == '' || preg_match('/[0-9]/', $pro_price) == 0 || $pro_gazou['size'] > 1000000) {
+if ($pro_name == '' || numberCheck($pro_price) == false || $pro_gazou['size'] > 1000000) {
     print '<form>';
     print '<input type="button" onclick="history.back()" value="戻る">';
     print '</form>';

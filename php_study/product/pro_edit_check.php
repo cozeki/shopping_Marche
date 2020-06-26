@@ -20,6 +20,8 @@ if (isset($_SESSION['login']) == false) {
 </head>
 <body>
 <?php
+require_once('../common/common.php');
+
 $pro_code=$_POST['code'];
 $pro_name=$_POST['name'];
 $pro_price=$_POST['price'];
@@ -41,11 +43,15 @@ if ($pro_name=='') {
 if ($pro_price=='') {
     print '価格が入力されていません。<br />';
 } else {
-    print '価格：';
-    print $pro_price;
-    print '<br />';
+// 正規表現
+    if (numberCheck($pro_price) == false) {
+        print '価格をきちんと入力してください。<br />';
+    } else {
+        print '価格：';
+        print $pro_price;
+        print '円<br />';
+    }
 }
-
 if ($pro_gazou['size'] > 0) {
     if ($pro_gazou['size'] > 1000000) {
         print '画像が大き過ぎます';
@@ -56,7 +62,7 @@ if ($pro_gazou['size'] > 0) {
     }
 }
 
-if ($pro_name==''||$pro_price=='') {
+if ($pro_name=='' || numberCheck($pro_price) == false || $pro_price=='') {
     print '<form>';
     print '<input type="button" onclick="history.back()" value="戻る">';
     print '</form>';
