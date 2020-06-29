@@ -1,6 +1,8 @@
 <?php
 //Session対策
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 $_SESSION=array();
 
 if (isset($_COOKIE[session_name()]) == true) {

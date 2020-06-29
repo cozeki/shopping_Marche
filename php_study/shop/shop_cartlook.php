@@ -1,6 +1,8 @@
 <?php
 //Session対策
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 session_regenerate_id(true);
 if (!isset($_SESSION['member_login'])) {
     print 'ようこそゲスト様　';
