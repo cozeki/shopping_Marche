@@ -32,10 +32,28 @@ function sanitize($before)
 // 数字チェック
 function numberCheck($input)
 {
-    if (preg_match('/[0-9]/', $input) == 0) {
-        return false;
-    } else {
+    if (preg_match('/[0-9]/', $input)) {
         return true;
+    } else {
+        return false;
+    }
+}
+// メールアドレスチェック
+function emailCheck($input)
+{
+    if (preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/', $input)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 電話番号チェック
+function telCheck($input)
+{
+    if (preg_match('/^(0{1}\d{1,4}-{0,1}\d{1,4}-{0,1}\d{4})$/', $input)) {
+        return true;
+    } else {
+        return false;
     }
 }
 ?>

@@ -46,7 +46,7 @@ if ($pro_price=='') {
     print '価格が入力されていません。<br />';
 } else {
 // 正規表現
-    if (numberCheck($pro_price) == false) {
+    if (!numberCheck($pro_price)) {
         print '価格をきちんと入力してください。<br />';
     } else {
         print '価格：';
@@ -64,7 +64,7 @@ if ($pro_gazou['size'] > 0) {
     }
 }
 
-if ($pro_name=='' || numberCheck($pro_price) == false || $pro_price=='') {
+if ($pro_name=='' || !numberCheck($pro_price) || $pro_price=='') {
     print '<form>';
     print '<input type="button" onclick="history.back()" value="戻る">';
     print '</form>';
