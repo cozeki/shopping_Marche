@@ -30,7 +30,8 @@ $pro_name=$post['name'];
 $pro_price=$post['price'];
 if (!empty($_FILES['gazou'])) {
     //ここに処理が入ります
-    $pro_gazou=$_FILES['gazou'];
+    echo $_FILES['gazou'];
+    $pro_gazou = sanitize($_FILES['gazou']);
     // echo $pro_gazou;
 }
 
