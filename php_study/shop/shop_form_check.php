@@ -74,7 +74,7 @@ if ($okflg) {
     print '<input type="hidden" name="address" value="'.$address.'">';
     print '<input type="hidden" name="tel" value="'.$tel.'">';
     print '<input type="button" onclick="history.back()" value="戻る">';
-    print '<input type="submit" value="OK"><br />';
+    print '<input type="submit" value="購入する"><br />';
     print '</form>';
 } else {
     print '<form>';
